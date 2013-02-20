@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/lleung/Desktop/122'
+let g:netrw_dirhist_2='/Users/lleung/Desktop/122/09-queuestack'
+let g:netrw_dirhist_3='/Users/lleung/Desktop/122'
+let g:netrw_dirhist_4='/Users/lleung/Desktop/122/09-queuestack'
+let g:netrw_dirhist_5='/Users/lleung/Desktop/122'
+let g:netrw_dirhist_6='/Users/lleung/Desktop/122/hw'
+let g:netrw_dirhist_7='/Users/lleung/Desktop/122/hw/hw3-handout'
+let g:netrw_dirhist_8='/Users/lleung/Desktop/122/hw/hw3-handout/lib'
+let g:netrw_dirhist_9='/Users/lleung/.vim/bitmaps'
