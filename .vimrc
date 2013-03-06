@@ -1,4 +1,30 @@
-execute pathogen#infect()
+"===== Pathogen
+"execute pathogen#infect()
+
+"===== Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
+"Fancy Vim statusline
+Bundle 'Lokaltog/vim-powerline'
+set nocompatible
+set laststatus=2
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+"Shows syntax errors
+"Bundle 'scrooloose/syntastic'
+"Preview colors
+Bundle 'skammer/vim-css-color'
+"File explorer
+Bundle 'scrooloose/nerdtree'
+"Shell
+Bundle 'ervandew/screen'
 
 "===== Config tab space
 set tabstop=2
@@ -9,6 +35,11 @@ set expandtab
 set formatoptions-=cro
 
 "===== UI Settings
+syntax on
+set background=dark
+filetype on
+filetype indent on
+filetype plugin on
 set nocompatible
 set number
 set history=1000
@@ -20,19 +51,13 @@ set visualbell	"No sounds
 set smarttab
 set hlsearch
 set mouse=a "Enable mouse scrolling
-  map <ScrollWheelUp> <C-Y>
-  map <ScrollWheelDown> <C-E>
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
 
 "===== Turn off swap files
 set noswapfile
 set nobackup
 set nowb
-
-syntax on
-set background=dark
-filetype on
-filetype indent on
-filetype plugin on
 
 "===== MacVim vs terminal
 if has("gui_running")
@@ -41,8 +66,8 @@ if has("gui_running")
   set colorcolumn=80
 else
   colorscheme default
-"  let g:solarized_termcolors=256
-"  let g:solarized_visibility = "high"
-"  let g:solarized_contrast = "high"
+  "  let g:solarized_termcolors=256
+  "  let g:solarized_visibility = "high"
+  "  let g:solarized_contrast = "high"
   highlight LineNr ctermfg=Black ctermbg=none   "Line number colors
 endif
