@@ -14,7 +14,7 @@ Math:
     fp21-fp29.math.cmu.edu
     fpg1.math.cmu.edu
 
-Check afs quota (user: 20GB; academic: 25GB; project: 100GB)
+Check afs quota
 
     fs lq ~
 
