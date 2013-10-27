@@ -58,7 +58,7 @@ Bundle 'skammer/vim-css-color'
 "==============================================================================
 
 "===== Config tab space
-"=====   (To do: `setlocal sw=4 sts=4` for .py)
+"=====   (Using .vim/indent/python.vim instead of `setlocal sw=4 sts=4` for .py)
 set tabstop=2     "Indentation level by # columns
 set shiftwidth=2  "Indent/outdent by #
 set expandtab     "Convert hard-tabs to spaces
@@ -78,14 +78,16 @@ set undolevels=1000
 set ruler
 set showcmd	      "Show incomplete cmds down at the bottom
 "set autoindent   "Copy indentation level from previous line
-"set smartindent  "Based on context in previous line
-set cindent       "Strict smartindent; #-comment below method indents correctly
+set smartindent  "Based on context in previous line
+"set cindent       "Strict smartindent; #-comment below method indents correctly
 set visualbell	  "No sounds
 set smarttab
 set hlsearch
 set incsearch     "Show search match as you type
 set backspace=indent,eol,start
 set showmatch     "Show matching parenthesis
+set confirm       "Ask for confirmation when :q, :qa, :w show overwrite errors
+
 "=== Enable mouse scrolling (in xterm/X11)
 set mouse=a
 map <ScrollWheelUp> <C-Y>
@@ -120,11 +122,22 @@ set splitright
 "=====   Usage: press <F2> -> paste text -> press <F2>
 set pastetoggle=<F2>
 
+"===== Switch buffer and tabs
+"===     Usage: "alt+j/k" for next/previous buffer, "alt+h/l" for prev/next tab
+map <M-J> :bnext<CR>
+map <M-K> :bprev<CR>
+map <M-L> :tabn<CR>
+map <M-H> :tabp<CR>
 
+"===== Other functions
+"===     Usage: ":call TrimWhiteSpace()"
+function! TrimWhiteSpace()
+  %s/\s\+$//e
+endfunction
 
 "==============================================================================
 " Clunky quick fix
 "==============================================================================
 "===== HTML auto indent incorrectly (overrides some previous settings)
-filetype plugin indent off
+"filetype plugin indent off
 
