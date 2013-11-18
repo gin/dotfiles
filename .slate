@@ -39,6 +39,7 @@ bind c:cmd;shift focus ${browser}
  
 bind f:cmd;shift focus 'Finder'
  
+bind p:cmd;shift focus 'Parallels Desktop'
 
 # SLATE FEATURES
 # ==============================================================================
@@ -83,11 +84,22 @@ alias midthird move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;scre
 bind 2:${hyper} ${midthird}
 
 
-# Fullscreen = hyper + 5
+# Fullscreen = hyper + p
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
-bind 5:${hyper} ${full}
+bind p:${hyper} ${full}
 
  
+# LargeThirds: hyper + 8, 9, 0
+alias leftthird move screenOriginX;screenOriginY screenSizeX/7*3;screenSizeY
+bind 8:${hyper} ${leftthird}
+ 
+alias rightthird move screenOriginX+screenSizeX/7*2;screenOriginY screenSizeX/7*3;screenSizeY
+bind 9:${hyper} ${rightthird}
+
+alias midthird move screenOriginX+screenSizeX/7*4;screenOriginY screenSizeX/7*3;screenSizeY
+bind 0:${hyper} ${midthird}
+
+
 ## Keypad row 13 = halves
 #alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 #bind pad1:${hyper} ${lefthalf}
@@ -155,8 +167,9 @@ alias dell-bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX
 # MOVING BETWEEN TWO MONITORS
 # ==============================================================================
 
-bind 9:${hyper} ${macbook-full}
-bind 0:${hyper} ${dell-righthalf}
+# hyper + -/=
+bind -:${hyper} ${macbook-full}
+bind =:${hyper} ${dell-righthalf}
  
 
 ## TWO MONITOR LAYOUT
