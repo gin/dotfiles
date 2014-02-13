@@ -1,45 +1,55 @@
 # GLOBAL CONFIGURATIONS
 # ==============================================================================
 # .slate template taken from https://github.com/jigish/slate/wiki/Global-Configs
- 
+
 config defaultToCurrentScreen true
 config secondsBeforeRepeat 0.4
 config secondsBetweenRepeat 0.1
 config keyboardLayout "qwerty"
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
- 
- 
+
+
 # HYPER KEY
 # ==============================================================================
 # The "hyper" key is a shortcut for CTRL + ALT + CMD
- 
+
 alias hyper ctrl;alt;cmd
- 
- 
+
+
 # MONITOR ALIASES
 # ==============================================================================
- 
+
 alias monitor-macbook 1280x800
 alias monitor-dell 2560x1440
- 
- 
+
+
 # APPLICATION ALIASES AND BINDINGS
 # ==============================================================================
 # Focusing window with CMD + SHIFT + modifier 
 
 alias editor 'MacVim'
-bind z:cmd;shift focus ${editor}
- 
-alias terminal 'Terminal'
+bind a:cmd;shift focus ${editor}
+
+alias matlab 'MATLAB'
+bind z:cmd;shift focus ${matlab}
+
+alias terminal 'iTerm'
 bind x:cmd;shift focus ${terminal}
- 
+
+alias pdf_reader 'Skim'
+bind s:cmd;shift focus ${pdf_reader}
+
 alias browser 'Google Chrome'
 bind c:cmd;shift focus ${browser}
- 
-bind f:cmd;shift focus 'Finder'
- 
+
+alias media_player 'VLC'
+bind v:cmd;shift focus ${media_player}
+
+bind e:cmd;shift focus 'Finder'     # f: clashes with fullscreen; e for explorer
+
 bind p:cmd;shift focus 'Parallels Desktop'
+
 
 # SLATE FEATURES
 # ==============================================================================
@@ -49,17 +59,17 @@ config windowHintsShowIcons true
 config windowHintsSpread true
 config windowHintsIgnoreHiddenWindows false
 bind h:cmd;shift hint ASDFHJKLQWERTYUIOPCVBNG
- 
+
 # Show a positioning grid for each monitor
-bind g:cmd grid padding:5 0:6,2 1:8,3
- 
+bind g:cmd grid padding:5 0:7,6 1:6,3
+
 # Application switcher show on all monitors (seems like there's missing icons?)
 #bind tab:cmd switch
- 
+
 # Reload Slate configuration file
 bind r:${hyper} relaunch
- 
- 
+
+
 # GENERAL POSITION ALIASES AND BINDINGS
 # ==============================================================================
 # These positions are not tied to any screen. Each position gets an alias
@@ -68,7 +78,7 @@ bind r:${hyper} relaunch
 # Half: hyper + [ / ]
 alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 bind [:${hyper} ${lefthalf}
- 
+
 alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 bind ]:${hyper} ${righthalf}
 
@@ -76,7 +86,7 @@ bind ]:${hyper} ${righthalf}
 # Thirds: hyper + 1,2,3
 alias leftthird move screenOriginX;screenOriginY screenSizeX/3;screenSizeY
 bind 1:${hyper} ${leftthird}
- 
+
 alias rightthird move screenOriginX+screenSizeX/3*2;screenOriginY screenSizeX/3;screenSizeY
 bind 3:${hyper} ${rightthird}
 
@@ -88,16 +98,31 @@ bind 2:${hyper} ${midthird}
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
 bind p:${hyper} ${full}
 
- 
-# LargeThirds: hyper + 8, 9, 0
-alias leftthird move screenOriginX;screenOriginY screenSizeX/7*3;screenSizeY
-bind 8:${hyper} ${leftthird}
- 
-alias rightthird move screenOriginX+screenSizeX/7*2;screenOriginY screenSizeX/7*3;screenSizeY
-bind 9:${hyper} ${rightthird}
 
-alias midthird move screenOriginX+screenSizeX/7*4;screenOriginY screenSizeX/7*3;screenSizeY
-bind 0:${hyper} ${midthird}
+# LargeThirds: hyper + 8, 9, 0
+alias largeleftthird move screenOriginX;screenOriginY screenSizeX/7*3;screenSizeY
+bind 8:${hyper} ${largeleftthird}
+
+alias largerightthird move screenOriginX+screenSizeX/7*2;screenOriginY screenSizeX/7*3;screenSizeY
+bind 9:${hyper} ${largerightthird}
+
+alias largemidthird move screenOriginX+screenSizeX/7*4;screenOriginY screenSizeX/7*3;screenSizeY
+bind 0:${hyper} ${largemidthird}
+
+
+# RightSideHalves: hyper + ;, '
+# Sides: hyper + k,l
+alias siderighttop move screenOriginX+screenSizeX/7*5;screenOriginY screenSizeX/7*2;screenSizeY/2
+bind ;:${hyper} ${siderighttop}
+
+alias siderightbottom move screenOriginX+screenSizeX/7*5;screenOriginY+screenSizeY/2 screenSizeX/7*2;screenSizeY/2
+bind ':${hyper} ${siderightbottom}
+
+alias sideright move screenOriginX+screenSizeX/7*5;screenOriginY screenSizeX/7*2;screenSizeY
+bind l:${hyper} ${sideright}
+
+alias sideleft move screenOriginX;screenOriginY screenSizeX/7*2;screenSizeY
+bind k:${hyper} ${sideleft}
 
 
 ## Keypad row 13 = halves
@@ -135,12 +160,12 @@ bind 0:${hyper} ${midthird}
 #alias bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
 #bind pad2:${hyper} ${bottomhalf}
 #bind 2:${hyper} ${bottomhalf}
- 
- 
+
+
 # MONITOR-BASED POSITION ALIASES
 # ==============================================================================
 # These aliases are move windows to specific positions on a specific monitor.
- 
+
 # Laptop monitor
 alias macbook-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-macbook}
 alias macbook-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${monitor-macbook}
@@ -151,7 +176,7 @@ alias macbook-leftfifth move screenOriginX;screenOriginY screenSizeX/5;screenSiz
 alias macbook-rightfourfifths move (screenOriginX+screenSizeX/5)+45;screenOriginY (4*screenSizeX/5)-45;screenSizeY ${monitor-macbook}
 alias macbook-tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2 ${monitor-macbook}
 alias macbook-bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2 ${monitor-macbook}
- 
+
 # Dell monitor
 alias dell-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-dell}
 alias dell-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${monitor-dell}
@@ -170,7 +195,7 @@ alias dell-bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX
 # hyper + -/=
 bind -:${hyper} ${macbook-full}
 bind =:${hyper} ${dell-righthalf}
- 
+
 
 ## TWO MONITOR LAYOUT
 # ==============================================================================
