@@ -1,6 +1,10 @@
+# Show To Do list
+#   Create a todo.txt first
+cat ~/Dropbox/todo.txt
+
 # Prompt
 PS1="\[\033[31m\]\$( [ \j -gt 0 ]  && echo [ \j job\(s\) running ])\033[m\]
-\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]
+\[\033[35m\]\D{(%a) %b-%d} [\t]\[\033[m\]-\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h: \[\033[33;1m\]\w\[\033[m\]
 \$ "
 
 # $ls
@@ -27,6 +31,12 @@ alias gll="git log --pretty='%C(yellow)%h %C(blue)(%aD) %C(green)%an%n %C(reset)
 alias glo="git log --pretty='%C(yellow)%h %C(blue)(%ar) %C(reset)%s'"
 alias glg="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
 alias gb="git blame --date short"
+
+#===============================================================================
+# To Do list
+#===============================================================================
+alias t='cat ~/Dropbox/todo.txt'
+alias et='vim ~/Dropbox/todo.txt'
 
 #===============================================================================
 # School stuff

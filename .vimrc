@@ -49,7 +49,7 @@ let g:Powerline_symbols = 'fancy'
 Bundle 'scrooloose/syntastic'
 
 "------------------------------------------------------------------------------
-" Shell within VIM (just like Emacs!)
+" Shell within VIM (like the shell feature in Emacs)
 "------------------------------------------------------------------------------
 Bundle 'ervandew/screen'
 
@@ -64,7 +64,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'othree/html5.vim'
 
 "------------------------------------------------------------------------------
-" Preview hex colors in css
+" Preview hex colors (hex-color-code highlighted in its color)
 "------------------------------------------------------------------------------
 Bundle 'skammer/vim-css-color'
 
@@ -73,29 +73,26 @@ Bundle 'skammer/vim-css-color'
 "==============================================================================
 " Preferences
 "==============================================================================
-"------------------------------------------------------------------------------
-" Config tab space
-"------------------------------------------------------------------------------
-" (Using .vim/indent/python.vim instead of `setlocal sw=4 sts=4` for .py)
-set tabstop=4     "Indentation level by # columns
-set shiftwidth=4  "Indent/outdent by #
-set expandtab     "Convert hard-tabs to spaces
+" Use .vim/indent/ruby.vim instead for '2-space indent'
+" or `setlocal sw=2 sts=2`
+set tabstop=4           "Indentation level by # columns
+set shiftwidth=4        "Indent/outdent by #
+set expandtab           "Convert hard-tabs to spaces
 
-"------------------------------------------------------------------------------
-" Prevent auto insert comment symbol
-"------------------------------------------------------------------------------
-set formatoptions-=cro
+set textwidth=0         "Disable auto wrapping
+set wrapmargin=0        "Disable auto wrapping
+set wrap                "Wrap line visually
+set linebreak
+set nolist              "list disables linebreak
 
-"------------------------------------------------------------------------------
-" UI & Behavior Settings
-"------------------------------------------------------------------------------
 set encoding=utf-8
-set list listchars=tab:→\ ,trail:·      "Show tabs and trailing whitespace
+set list listchars=tab:→\ ,trail:·          "Show tabs and trailing whitespace
 syntax on
 set background=dark
 filetype on
 filetype indent on
 filetype plugin on
+au FileType * setlocal formatoptions-=cro   "Disables auto-commenting
 set number
 set history=1000
 set undolevels=1000
@@ -106,11 +103,12 @@ set smartindent   "Based on context in previous line
 "set cindent      "Strict smartindent; #-comment below method indents correctly
 set visualbell	  "No sounds
 set smarttab
-set hlsearch
+set hlsearch      "Highlight all search matches
 set incsearch     "Show search match as you type
 set backspace=indent,eol,start
 set showmatch     "Show matching parenthesis
 set confirm       "Ask for confirmation when :q, :qa, :w show overwrite errors
+
 
 "------------------------------------------------------------------------------
 " Enable mouse scrolling (in xterm/X11)
@@ -127,15 +125,15 @@ set nobackup
 set nowb
 
 "------------------------------------------------------------------------------
-" MacVim vs terminal
+" MacVim vs terminal style
 "------------------------------------------------------------------------------
 if has("gui_running")
-  colorscheme tomorrow-eighties 
+  colorscheme tomorrow-eighties
   set guifont=Menlo:h13
   set colorcolumn=80
 else
-  colorscheme default
-  highlight LineNr ctermfg=Black ctermbg=none   "Line number colors
+  colorscheme tomorrow-eighties
+"  highlight LineNr ctermfg=Black ctermbg=none      "Line number colors
   set colorcolumn=80
 endif
 
@@ -147,7 +145,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" Natural split panes
+" Natural split panes (invert default)
 set splitbelow
 set splitright
 
@@ -167,8 +165,10 @@ map <M-L> :tabn<CR>
 map <M-H> :tabp<CR>
 
 "------------------------------------------------------------------------------
-" Other functions
+" Useful custom functions
 "-----------------------------------------------------------------------------
+"Remove white spaces in inappropriate places like at the end of line char, etc
+"  (especially on n00bz and other people's files)
 "=       Usage: ":call TrimWhiteSpace()"
 function! TrimWhiteSpace()
   %s/\s\+$//e
