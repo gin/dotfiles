@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/luigi/.oh-my-zsh
+export ZSH=/home/luigi/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,7 +49,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -79,7 +79,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
+# Add Anaconda
+export PATH="/home/luigi/anaconda3/bin:$PATH"
 
 #===============================================================================
 # My Preferences copied from bash
@@ -89,9 +90,9 @@ source $ZSH/oh-my-zsh.sh
 # To Do list
 #-------------------------------------------------------------------------------
 #   Create a todo.txt first
-cat ~/Dropbox/todo.txt
-alias t='cat ~/Dropbox/todo.txt'
-alias et='vim ~/Dropbox/todo.txt'
+#cat ~/Dropbox/todo.txt
+#alias t='cat ~/Dropbox/todo.txt'
+#alias et='vim ~/Dropbox/todo.txt'
 
 
 #echo -e "\[\033[31m\] color \[\033[m\]"   #red
@@ -115,9 +116,10 @@ alias et='vim ~/Dropbox/todo.txt'
 # $ls
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
-alias ls='ls -F'
-alias ll='ls -lha'
-alias gvim='mvim'
+alias ls='ls -F --color'
+alias ll='ls -Flh --color'
+alias la='ls -FlhA --color'
+#alias gvim='mvim'
 
 # $grewp to highlight matches
 export GREP_OPTIONS='--color=auto'

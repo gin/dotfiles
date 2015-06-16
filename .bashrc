@@ -34,8 +34,9 @@ PS1="\[\033[31m\]\$( [ \j -gt 0 ]  && echo [ \j job\(s\) running ])\[\033[m\]
 # $ls
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
-alias ls='ls -F'
-alias ll='ls -lha'
+alias ls='ls --color -F'
+alias ll='ls --color -lhF'
+alias la='ls --color -lhFA'
 alias gvim='mvim'
 
 # $grewp to highlight matches
