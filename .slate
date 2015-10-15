@@ -20,8 +20,8 @@ alias hyper ctrl;alt;cmd
 # MONITOR ALIASES
 # ==============================================================================
 
-alias monitor-macbook 1280x800
-alias monitor-dell 2560x1440
+alias monitor-laptop 2560x1600
+alias monitor-external 3840x2160
 
 
 # APPLICATION ALIASES AND BINDINGS
@@ -167,67 +167,67 @@ bind k:${hyper} ${sideleft}
 # These aliases are move windows to specific positions on a specific monitor.
 
 # Laptop monitor
-alias macbook-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-macbook}
-alias macbook-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${monitor-macbook}
-alias macbook-righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${monitor-macbook}
-alias macbook-leftthird move screenOriginX;screenOriginY screenSizeX/3;screenSizeY ${monitor-macbook}
-alias macbook-righttwothirds move screenOriginX+screenSizeX/3;screenOriginY 2*screenSizeX/3;screenSizeY ${monitor-macbook}
-alias macbook-leftfifth move screenOriginX;screenOriginY screenSizeX/5;screenSizeY ${monitor-macbook}
-alias macbook-rightfourfifths move (screenOriginX+screenSizeX/5)+45;screenOriginY (4*screenSizeX/5)-45;screenSizeY ${monitor-macbook}
-alias macbook-tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2 ${monitor-macbook}
-alias macbook-bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2 ${monitor-macbook}
+alias laptop-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-laptop}
+alias laptop-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${monitor-laptop}
+alias laptop-righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${monitor-laptop}
+alias laptop-leftthird move screenOriginX;screenOriginY screenSizeX/3;screenSizeY ${monitor-laptop}
+alias laptop-righttwothirds move screenOriginX+screenSizeX/3;screenOriginY 2*screenSizeX/3;screenSizeY ${monitor-laptop}
+alias laptop-leftfifth move screenOriginX;screenOriginY screenSizeX/5;screenSizeY ${monitor-laptop}
+alias laptop-rightfourfifths move (screenOriginX+screenSizeX/5)+45;screenOriginY (4*screenSizeX/5)-45;screenSizeY ${monitor-laptop}
+alias laptop-tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2 ${monitor-laptop}
+alias laptop-bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2 ${monitor-laptop}
 
-# Dell monitor
-alias dell-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-dell}
-alias dell-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${monitor-dell}
-alias dell-righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${monitor-dell}
-alias dell-leftthird move screenOriginX;screenOriginY screenSizeX/3;screenSizeY ${monitor-dell}
-alias dell-righttwothirds move screenOriginX+screenSizeX/3;screenOriginY 2*screenSizeX/3;screenSizeY ${monitor-dell}
-alias dell-leftfifth move screenOriginX;screenOriginY screenSizeX/5;screenSizeY ${monitor-dell}
-alias dell-rightfourfifths move (screenOriginX+screenSizeX/5)+14;screenOriginY (4*screenSizeX/5)-14;screenSizeY ${monitor-dell}
-alias dell-tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2 ${monitor-dell}
-alias dell-bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2 ${monitor-dell}
+# External monitor
+alias external-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-external}
+alias external-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${monitor-external}
+alias external-righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${monitor-external}
+alias external-leftthird move screenOriginX;screenOriginY screenSizeX/3;screenSizeY ${monitor-external}
+alias external-righttwothirds move screenOriginX+screenSizeX/3;screenOriginY 2*screenSizeX/3;screenSizeY ${monitor-external}
+alias external-leftfifth move screenOriginX;screenOriginY screenSizeX/5;screenSizeY ${monitor-external}
+alias external-rightfourfifths move (screenOriginX+screenSizeX/5)+14;screenOriginY (4*screenSizeX/5)-14;screenSizeY ${monitor-external}
+alias external-tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2 ${monitor-external}
+alias external-bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2 ${monitor-external}
 
 
 # MOVING BETWEEN TWO MONITORS
 # ==============================================================================
 
 # hyper + -/=
-bind -:${hyper} ${macbook-full}
-bind =:${hyper} ${dell-righthalf}
+bind -:${hyper} ${laptop-full}
+bind =:${hyper} ${external-righthalf}
 
 
 ## TWO MONITOR LAYOUT
 # ==============================================================================
 # 
-#layout 2monitors ${editor}:MAIN_FIRST ${macbook-lefthalf}
-#layout 2monitors ${terminal}:MAIN_FIRST ${macbook-righthalf}
-#layout 2monitors ${browser}:REPEAT ${dell-rightfourfifths}
-#layout 2monitors 'Twitter':REPEAT ${dell-leftfifth}
-#layout 2monitors 'Things':REPEAT ${dell-lefthalf}
-#layout 2monitors 'nvALT':REPEAT ${dell-righthalf}
+#layout 2monitors ${editor}:MAIN_FIRST ${laptop-lefthalf}
+#layout 2monitors ${terminal}:MAIN_FIRST ${laptop-righthalf}
+#layout 2monitors ${browser}:REPEAT ${external-rightfourfifths}
+#layout 2monitors 'Twitter':REPEAT ${external-leftfifth}
+#layout 2monitors 'Things':REPEAT ${external-lefthalf}
+#layout 2monitors 'nvALT':REPEAT ${external-righthalf}
 # 
 ## Bind a key to trigger this layout
 #bind -:${hyper} layout 2monitors
 # 
 ## Trigger this layout automatically when 2 monitors are present
-#default 2monitors resolutions:${monitor-macbook};${monitor-dell}
+#default 2monitors resolutions:${monitor-laptop};${monitor-external}
 # 
 ## ONE MONITOR LAYOUT
 # ==============================================================================
 # 
-#layout 1monitors ${editor}:MAIN_FIRST ${macbook-lefthalf}
-#layout 1monitors ${terminal}:MAIN_FIRST ${macbook-righthalf}
-#layout 1monitors ${browser}:REPEAT ${macbook-rightfourfifths}
-#layout 1monitors 'Twitter':REPEAT ${macbook-leftfifth}
-#layout 1monitors 'Things':REPEAT ${macbook-lefthalf}
-#layout 1monitors 'nvALT':REPEAT ${macbook-righthalf}
+#layout 1monitors ${editor}:MAIN_FIRST ${laptop-lefthalf}
+#layout 1monitors ${terminal}:MAIN_FIRST ${laptop-righthalf}
+#layout 1monitors ${browser}:REPEAT ${laptop-rightfourfifths}
+#layout 1monitors 'Twitter':REPEAT ${laptop-leftfifth}
+#layout 1monitors 'Things':REPEAT ${laptop-lefthalf}
+#layout 1monitors 'nvALT':REPEAT ${laptop-righthalf}
 # 
 ## Bind a key to trigger this layout
 #bind =:${hyper} layout 1monitors
 # 
 ## Trigger this layout automatically when 1 monitors are present
-#default 1monitors resolutions:${monitor-macbook}
+#default 1monitors resolutions:${monitor-laptop}
 # 
 ## BINDINGS
 # ==============================================================================
