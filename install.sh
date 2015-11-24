@@ -38,3 +38,7 @@ brew install asciinema
 brew install zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# Install Python tools
+brew install Caskroom/cask/anaconda
+conda update conda
+
