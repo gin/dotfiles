@@ -1,40 +1,51 @@
+#===============================================================================
 # Show To Do list
 #   Create a todo.txt first
-cat ~/Dropbox/todo.txt
 #===============================================================================
-# To Do list
-#===============================================================================
-alias t='cat ~/Dropbox/todo.txt'
-alias et='vim ~/Dropbox/todo.txt'
+#cat ~/Dropbox/todo.txt
+#alias t='cat ~/Dropbox/todo.txt'
+#alias et='vim ~/Dropbox/todo.txt'
 
-
-#echo -e "\[\033[31m\] color \[\033[m\]"   #red
-#echo -e "\[\033[32m\] color \[\033[m\]"   #green
-#echo -e "\[\033[33m\] color \[\033[m\]"   #yellow
-#echo -e "\[\033[34m\] color \[\033[m\]"   #blue
-#echo -e "\[\033[35m\] color \[\033[m\]"   #purple
-#echo -e "\[\033[36m\] color \[\033[m\]"   #coral
-#echo -e "\[\033[37m\] color \[\033[m\]"   #light grey
-#echo -e "\[\033[30m\] color \[\033[m\]"   #black
-#echo -e "\[\033[90m\] color \[\033[m\]"   #dark grey
+#echo -e "\[\e[31m\] red \[\e[m\]"
+#echo -e "\[\e[32m\] green \[\e[m\]"
+#echo -e "\[\e[33m\] yellow \[\e[m\]"
+#echo -e "\[\e[34m\] blue \[\e[m\]"
+#echo -e "\[\e[35m\] purple \[\e[m\]"
+#echo -e "\[\e[36m\] coral \[\e[m\]"
+#echo -e "\[\e[37m\] light gray \[\e[m\]"
+#echo -e "\[\e[30m\] black \[\e[m\]"
+#echo -e "\[\e[90m\] dark gray \[\e[m\]"
 #
-#echo -e "\[\033[91m\] color \[\033[m\]"   #light red
-#echo -e "\[\033[92m\] color \[\033[m\]"   #light green
-#echo -e "\[\033[93m\] color \[\033[m\]"   #light yellow
-#echo -e "\[\033[94m\] color \[\033[m\]"   #light blue
-#echo -e "\[\033[95m\] color \[\033[m\]"   #light purple
-#echo -e "\[\033[96m\] color \[\033[m\]"   #light coral
-#echo -e "\[\033[97m\] color \[\033[m\]"   #white
+#echo -e "\[\e[91m\] red \[\e[m\]"
+#echo -e "\[\e[92m\] green \[\e[m\]"
+#echo -e "\[\e[93m\] yellow \[\e[m\]"
+#echo -e "\[\e[94m\] blue \[\e[m\]"
+#echo -e "\[\e[95m\] purple \[\e[m\]"
+#echo -e "\[\e[96m\] coral \[\e[m\]"
+#echo -e "\[\e[97m\] white \[\e[m\]"
 
-# Prompt
-PS1="\[\033[31m\]\$( [ \j -gt 0 ]  && echo [ \j job\(s\) running ])\[\033[m\]
-\[\033[91m\]\D{(%a) %b-%d} [\t]\[\033[m\] \[\033[90m\]\u\[\033[m\]@\[\033[37m\]\h: \[\033[m\]\[\033[94m\]\w\[\033[m\]
-\[\033[90m\]\$ \[\033[m\]"
+RESET="\[\e[0m\]"
+
+BLACK="\[\e[30m\]"
+LGRAY="\[\e[37m\]"
+DGRAY="\[\e[90m\]"
+RED="\[\e[91m\]"
+GREEN="\[\e[92m\]"
+YELLOW="\[\e[93m\]"
+BLUE="\[\e[94m\]"
+PURPLE="\[\e[95m\]"
+CORAL="\[\e[96m\]"
+WHITE="\[\e[97m\]"
+
+PS1="$RED\$( [ \j -gt 0 ]  && echo [ \j job\(s\) running ])$RESET
+$CORAL\D{(%a) %b-%d} [\t] $LGRAY\u$DGRAY@$LGRAY\h: $YELLOW\w
+$DGRAY\$$RESET "
 
 # $ls
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
 alias ls='ls --color -F'
+alias l='ls --color -lhF'
 alias ll='ls --color -lhF'
 alias la='ls --color -lhFA'
 alias gvim='mvim'
@@ -57,31 +68,3 @@ alias gll="git log --pretty='%C(yellow)%h %C(blue)(%ar) %C(green)%an %C(reset)%s
 alias glg="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
 # -M flag ignores moving text; -w ignores white space
 alias gb="git blame -M --date short"
-
-
-#===============================================================================
-# School stuff
-#===============================================================================
-# 15-122 Imperative Programming
-#export PATH=${PATH}:~/Downloads/cc0/bin/
-#alias coin='rlwrap coin'
-
-# 15-150 Functional Programming
-#   (?rvm left over from Ruby?; added SML path)
-#PATH=$PATH:$HOME/.rvm/bin:$HOME/sml/bin/sml
-#alias smlnj='rlwrap sml'
-
-# Bioinformatics project
-#export PATH=${PATH}:~/Downloads/MUMmer3.23/
-#export PATH=${PATH}:/Applications/Mauve.app/Contents/MacOS/
-
-# Matlab
-export PATH=${PATH}:/Applications/MATLAB_R2013a.app/bin/
-
-# Python
-#     python installed in both /usr/bin and /opt/local/bin
-#     figure out pip and port and brew
-alias python='python2.7'
-
-# MacPorts stuff
-export PATH=/opt/local/bin/:${PATH}
