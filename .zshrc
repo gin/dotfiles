@@ -1,10 +1,6 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/luigi/.oh-my-zsh
+export ZSH=/Users/Luigi/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="ys"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -48,77 +44,29 @@ ZSH_THEME="ys"
 plugins=(git)
 
 # User configuration
-
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-# export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Add Anaconda
-export PATH="/home/luigi/anaconda3/bin:$PATH"
+#export PATH="/home/luigi/anaconda3/bin:$PATH"
 
-#===============================================================================
-# My Preferences copied from bash
-#===============================================================================
-
-#-------------------------------------------------------------------------------
-# To Do list
-#-------------------------------------------------------------------------------
-#   Create a todo.txt first
+## To Do list
+##   Create a todo.txt first
 #cat ~/Dropbox/todo.txt
 #alias t='cat ~/Dropbox/todo.txt'
 #alias et='vim ~/Dropbox/todo.txt'
 
-
-#echo -e "\[\033[31m\] color \[\033[m\]"   #red
-#echo -e "\[\033[32m\] color \[\033[m\]"   #green
-#echo -e "\[\033[33m\] color \[\033[m\]"   #yellow
-#echo -e "\[\033[34m\] color \[\033[m\]"   #blue
-#echo -e "\[\033[35m\] color \[\033[m\]"   #purple
-#echo -e "\[\033[36m\] color \[\033[m\]"   #coral
-#echo -e "\[\033[37m\] color \[\033[m\]"   #light grey
-#echo -e "\[\033[30m\] color \[\033[m\]"   #black
-#echo -e "\[\033[90m\] color \[\033[m\]"   #dark grey
-#
-#echo -e "\[\033[91m\] color \[\033[m\]"   #light red
-#echo -e "\[\033[92m\] color \[\033[m\]"   #light green
-#echo -e "\[\033[93m\] color \[\033[m\]"   #light yellow
-#echo -e "\[\033[94m\] color \[\033[m\]"   #light blue
-#echo -e "\[\033[95m\] color \[\033[m\]"   #light purple
-#echo -e "\[\033[96m\] color \[\033[m\]"   #light coral
-#echo -e "\[\033[97m\] color \[\033[m\]"   #white
-
 # $ls
-export CLICOLOR=1
-export LSCOLORS=Exfxcxdxbxegedabagacad
-alias ls='ls -F --color'
-alias ll='ls -Flh --color'
-alias la='ls -FlhA --color'
+#export CLICOLOR=1
+#export LSCOLORS=Exfxcxdxbxegedabagacad
+#alias ls='ls -F --color'
+#alias ll='ls -Flh --color'
+#alias la='ls -FlhA --color'
 #alias gvim='mvim'
 
 # $grewp to highlight matches
@@ -140,3 +88,7 @@ alias glg="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
 # -M flag ignores moving text; -w ignores white space
 alias gb="git blame -M --date short"
 
+# Silver Searcher / Platinum Searcher
+alias ag="pt"
+
+ctags=/usr/local/bin/ctags

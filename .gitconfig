@@ -1,0 +1,11 @@
+[user]
+	name = Luigi Leung
+	email = luigileung@gmail.com
+	editor = vim
+[alias]
+	wtf = log --oneline --graph --decorate --all
+	tree = log --oneline --graph --decorate
+[color]
+	ui = true
+[core]
+	excludesfile = /Users/Luigi/.global_ignore

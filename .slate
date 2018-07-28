@@ -170,8 +170,14 @@ bind k:${hyper} ${sideleft}
 alias laptop-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-laptop}
 alias laptop-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${monitor-laptop}
 alias laptop-righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${monitor-laptop}
-alias laptop-leftthird move screenOriginX;screenOriginY screenSizeX/3;screenSizeY ${monitor-laptop}
+
+#alias laptop-leftthird move screenOriginX;screenOriginY screenSizeX/3;screenSizeY ${monitor-laptop}
+# Originally 4 and 5 are a group. Now 4, 5 are 2/3 windowsize. Using 1,2,3 for 1/3 window size.
+alias laptop-lefttwothirds move screenOriginX;screenOriginY 2*screenSizeX/3;screenSizeY ${monitor-laptop}
+bind 4:${hyper} ${laptop-lefttwothirds}
 alias laptop-righttwothirds move screenOriginX+screenSizeX/3;screenOriginY 2*screenSizeX/3;screenSizeY ${monitor-laptop}
+bind 5:${hyper} ${laptop-righttwothirds}
+
 alias laptop-leftfifth move screenOriginX;screenOriginY screenSizeX/5;screenSizeY ${monitor-laptop}
 alias laptop-rightfourfifths move (screenOriginX+screenSizeX/5)+45;screenOriginY (4*screenSizeX/5)-45;screenSizeY ${monitor-laptop}
 alias laptop-tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2 ${monitor-laptop}
