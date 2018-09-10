@@ -1,0 +1,8 @@
+[user]
+	name = Luigi
+	email = luigi@umbrellavalidator.com
+[core]
+	editor = vim
+[alias]
+	plfs = !git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
+	up = "!git remote update -p; git merge --ff-only @{u}"
