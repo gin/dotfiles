@@ -1,11 +1,11 @@
 [user]
-	name = Luigi Leung
-	email = luigileung@gmail.com
+	name = Luigi
+	email = luigi@umbrellavalidator.com
+[core]
 	editor = vim
+	excludesfile = ~/.global_ignore
 [alias]
+	plfs = !git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
+	up = "!git remote update -p; git merge --ff-only @{u}"
 	wtf = log --oneline --graph --decorate --all
 	tree = log --oneline --graph --decorate
-[color]
-	ui = true
-[core]
-	excludesfile = /Users/Luigi/.global_ignore
