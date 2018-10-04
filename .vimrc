@@ -77,13 +77,17 @@ Plug 'othree/html5.vim'
 Plug 'skammer/vim-css-color'
 
 Plug 'othree/yajs.vim'
-
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS file
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'tomlion/vim-solidity'
+
+Plug 'dart-lang/dart-vim-plugin'
+let dart_html_in_string=v:true
+let dart_style_guide = 2
+let dart_format_on_save = 1
 
 Plug 'scrooloose/syntastic'
 " JSX files
@@ -109,14 +113,17 @@ set linebreak
 set nolist              "list disables linebreak
 
 set encoding=utf-8
-set list listchars=tab:»·,trail:·,nbsp:·  "Show tabs, trailing/whitespaces
+set list listchars=tab:→\ ,trail:·,nbsp:·  "Show tabs, trailing/whitespaces
+"set list listchars=tab:\│\ ,trail:·,nbsp:·  "Show tabs, trailing/whitespaces
+"set list listchars=tab:»·,trail:·,nbsp:·  "Show tabs, trailing/whitespaces
 syntax on
 set background=dark
 "filetype on
 "filetype indent on
 "filetype plugin on
 au FileType * setlocal formatoptions-=cro   "Disables auto-commenting
-set number
+"set number
+set relativenumber
 set history=1000
 set undolevels=1000
 set ruler
