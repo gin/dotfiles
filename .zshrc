@@ -92,3 +92,11 @@ alias gb="git blame -M --date short"
 alias ag="pt"
 
 ctags=/usr/local/bin/ctags
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/Luigi/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/Luigi/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/Luigi/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/Luigi/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH=~/flutter/bin:$PATH
