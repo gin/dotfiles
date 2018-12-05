@@ -1,6 +1,7 @@
 [user]
 	name = Luigi
-	email = luigileung@gmail.com
+	email = luigi@umbrellavalidator.com
+	signingkey = E63CFC4FA120D5D8
 [core]
 	editor = vim
 	excludesfile = ~/.global_ignore
@@ -9,3 +10,7 @@
 	up = "!git remote update -p; git merge --ff-only @{u}"
 	wtf = log --oneline --graph --decorate --all
 	tree = log --oneline --graph --decorate
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
